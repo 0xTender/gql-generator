@@ -8,13 +8,17 @@ test('validate generated queries', async () => {
 });
 
 test('limit depth', async () => {
-  cp.execSync('node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output2 --depthLimit 1');
+  cp.execSync(
+    'node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output2 --depthLimit 1',
+  );
   const queries = require('../example/output2');
   queries.mutations.signup.indexOf('createdAt').should.equal(-1);
 });
 
 test('excludes deprecated fields by default', async () => {
-  cp.execSync('node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output3 --depthLimit 1');
+  cp.execSync(
+    'node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output3 --depthLimit 1',
+  );
   const queries = require('../example/output3');
   should(typeof queries.queries.user).be.exactly('string');
   should(queries.queries.members === undefined).be.true();
@@ -45,7 +49,9 @@ test('excludes deprecated fields by default', async () => {
 });
 
 test('includes deprecated fields with includeDeprecatedFields flag', async () => {
-  cp.execSync('node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output4 --depthLimit 1 --includeDeprecatedFields');
+  cp.execSync(
+    'node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output4 --depthLimit 1 --includeDeprecatedFields',
+  );
   const queries = require('../example/output4');
 
   should(typeof queries.queries.user).be.exactly('string');
@@ -77,7 +83,9 @@ test('includes deprecated fields with includeDeprecatedFields flag', async () =>
 });
 
 test('includes nested in union types', async () => {
-  cp.execSync('node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output5 --depthLimit 2');
+  cp.execSync(
+    'node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output5 --depthLimit 2',
+  );
   const queries = require('../example/output5');
 
   should(typeof queries.queries.user).be.exactly('string');
@@ -114,7 +122,9 @@ test('includes nested in union types', async () => {
 });
 
 test('includes cross reference with the --includeCrossReferences flag', async () => {
-  cp.execSync('node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output6 --depthLimit 4 --includeCrossReferences');
+  cp.execSync(
+    'node index.js --schemaFilePath ./example/sampleTypeDef.graphql --destDirPath ./example/output6 --depthLimit 4 --includeCrossReferences',
+  );
   const queries = require('../example/output6');
 
   should(typeof queries.queries.user).be.exactly('string');
