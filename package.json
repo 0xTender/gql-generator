@@ -1,8 +1,9 @@
 {
-  "name": "gql-generator",
-  "version": "1.0.19",
+  "name": "@0xtender/gqlg-generator",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "private": false,
   "bin": {
     "gqlg": "index.js"
   },
@@ -12,19 +13,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/timqian/gql-generator.git"
+    "url": "git+https://github.com/0xTender/gql-generator.git"
   },
   "keywords": [
     "graphql",
     "query",
     "generator"
   ],
-  "author": "timqian",
+  "author": "0xTender",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/timqian/gql-generator/issues"
+    "url": "https://github.com/0xTender/gql-generator/issues"
   },
-  "homepage": "https://github.com/timqian/gql-generator#readme",
+  "homepage": "https://github.com/0xTender/gql-generator#readme",
   "dependencies": {
     "commander": "^2.15.1",
     "del": "^3.0.0",
